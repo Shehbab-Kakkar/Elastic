@@ -1,0 +1,22 @@
+---
+actions:
+  1:
+    action: snapshot
+    description: "Create snapshot"
+    options:
+      repository: "my_fs_backup"
+      allow_ilm_indices: true
+      continue_if_exception: False
+      wait_for_completion: True
+    filters:
+    - filtertype: pattern
+      kind: prefix
+      value: filebeat-
+      exclude:
+    - filtertype: age
+      source: name
+      direction: older
+      timestring: '%Y.%m.%d'
+      unit: hours
+      unit_count: 1
+      exclude:
