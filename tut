@@ -1,0 +1,73 @@
+ docker system prune --volumes
+  docker volume rm elk_esdata1 --force
+  
+  ftp://ftp.funet.fi/pub/mirrors/ftp.imdb.com/pub/frozendata/
+  /_cat/indices
+  
+  curator --dry-run --host localhost delete indices --time-unit days --older-than 45 --timestring '%Y%m%d'
+  
+  
+  curl -XPUT localhost:9200/index/type/id
+  
+  C:\Windows\System32>curl -XDELETE http://localhost:9200/builds-20160919/
+{"acknowledged":true}
+C:\Windows\System32>curl -XDELETE http://localhost:9200/builds-20160916/
+{"acknowledged":true}
+C:\Windows\System32>curl -XDELETE http://localhost:9200/builds-*/
+{"acknowledged":true}
+  
+  https://medium.com/imaginelearning/a-production-elasticsearch-curator-example-ea08a41131f3
+  
+  -H'Content-Type: application/json'
+  
+   curl -s -XPOST localhost:9200/actresses/_bulk --data-binary @actresses.json -H'Content-Type: application/json'
+   
+   
+ curator ./delete_testing.yml  --config ./curator.yml
+ curator ./delete_indices.yml --config ./curator.yml
+ 
+curator ./delete_filebeat.yml  --config ./curator.yml --dry-run
+curator ./delete_metricbeat.yml  --config ./curator.yml --dry-run
+
+ 932  docker run  --privileged -d --name shehbab-curator --network="host" curator:1.0 /sbin/init
+  docker exec --it shehbab-curator bash
+  docker run  --privileged -d --name shehbab-curator --network="host" curator:1.0
+ https://www.youtube.com/watch?v=N0_wjaJ1C1U  Curator
+ https://github.com/minsuk-heo/BigData/tree/master/ch07
+ 
+ https://discuss.elastic.co/t/solved-how-can-i-do-a-manual-rollover-for-all-indices-to-the-newest-index-policy/184694   Index rollover 
+ https://www.elastic.co/guide/en/elasticsearch/reference/7.1/getting-started-index-lifecycle-management.html
+ http://localhost:9200/_ilm/policy/
+ http://localhost:9200/_cat/indices
+ http://localhost:9200/_ilm/policy/metricbeat-7.5.0
+ http://localhost:9200/_cat/indices/metricbeat-7.5.0
+  curl -XDELETE http://localhost:9200/filebeat-*/
+  
+  https://www.elastic.co/guide/en/elasticsearch/client/curator/5.7/option_allow_ilm.html
+  https://www.elastic.co/guide/en/beats/filebeat/current/ilm.html#_configuration_options_18
+  https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started-index-lifecycle-management.html#ilm-gs-bootstrap
+  https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-templates.html
+  https://www.elastic.co/guide/en/elasticsearch/reference/current/ilm-with-existing-indices.html
+  https://www.elastic.co/guide/en/beats/filebeat/6.8/ilm.html
+  https://www.elastic.co/guide/en/elasticsearch/reference/7.6/indices-rollover-index.html#_using_date_math_with_the_rollover_api
+  https://www.elastic.co/guide/en/elasticsearch/client/curator/current/filtertype_age.html
+  https://fossies.org/linux/elasticsearch/docs/reference/ilm/using-policies-rollover.asciidoc
+  https://www.elastic.co/guide/en/elasticsearch/reference/7.1/applying-policy-to-template.html
+  https://www.madhur.co.in/blog/2017/04/09/usingcuratordeleteelasticindex.html
+  https://computingforgeeks.com/how-to-install-elk-stack-on-centos-fedora/
+  https://community.talend.com/t5/Architecture-Best-Practices-and/Deleting-old-indices-in-Elasticsearch-using-Curator/ta-p/124471
+  https://github.com/Shehbab-Kakkar/BigData/blob/master/ch07/delete_indices_time_base.yml
+  https://postmarkapp.com/blog/tools-we-use-curator-for-elasticsearch
+  http://robwillis.info/2017/11/elk-stack-installing-and-configuring-curator/
+  https://discuss.elastic.co/t/how-to-backup-all-indices-older-than-a-date-using-curator-plugin/68007/3
+  
+ =================
+https://tecadmin.net/crontab-in-linux-with-20-examples-of-cron-schedule/
+https://stackoverflow.com/questions/37458287/how-to-run-a-cron-job-inside-a-docker-container
+https://kb.novaordis.com/index.php/Run_a_Cron_Job_Inside_of_a_Docker_Container
+https://www.elastic.co/guide/en/elasticsearch/client/curator/current/apt-repository.html
+https://github.com/shabbirkagalwala/CentOS-Cron-Docker/blob/master/Dockerfile
+https://github.com/Shehbab-Kakkar/AnsibleTest/blob/master/docker-commands
+https://www.elastic.co/guide/en/elasticsearch/client/curator/current/filtertype_period.html
+ 
+  
