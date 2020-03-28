@@ -1,0 +1,8 @@
+[root@elk-stack ~]# grep -v '#' /etc/elasticsearch/elasticsearch.yml | grep -v '^$'
+path.data: /var/lib/elasticsearch
+path.logs: /var/log/elasticsearch
+path.repo: ["/var/lib/elasticsearch/my_fs_backup"]
+[root@elk-stack ~]# grep -v '#' /etc/kibana/kibana.yml | grep -v '^$'
+server.host: "0.0.0.0"
+server.name: "kibana.example.com"
+elasticsearch.hosts: ["http://localhost:9200"]
