@@ -2,3 +2,5 @@ overlay networking
 containers only connect to other containers on the same network
 connecting to containers on other hosts requires that the container publish the needed ports
 overlay network allows containers running on different hosts to connect on a private network.
+
+Open Ports:- UDP 4789 Used by docker for overlays network. CP and UDP 7946 for docker swarm 
