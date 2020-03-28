@@ -1,0 +1,20 @@
+[root@elk-stack ~]# grep -v '#' /etc/metricbeat/metricbeat.yml | grep -v '^$'
+metricbeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
+setup.template.settings:
+  index.number_of_shards: 1
+  index.codec: best_compression
+setup.kibana:
+  host: "localhost:5601"
+output.elasticsearch:
+  hosts: ["localhost:9200"]
+  ilm.enabled: true
+  ilm.rollover_alias: "metricbeat"
+  ilm.pattern: "{now/d}-000001"
+processors:
+  - add_host_metadata: ~
+  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
+  - add_kubernetes_metadata: ~
+[root@elk-stack ~]#
