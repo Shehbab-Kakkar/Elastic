@@ -1,1 +1,19 @@
 
+rexray.codedellemc.comhttps://dl.bintray.com/emccode/rexray/stable/0.10.0/
+cat /etc/rexray/rexray.yml
+libstorage:
+  service: rbd
+  server:
+    services:
+      rbd:
+        driver: rbd
+        rbd:
+          defaultPool: rbd
+================================
+rexray service start
+docker volume create --driver=rexray/rbd -o size=20 --name test
+docker volume ls
+docker volume inspect test
+rbd info test //volume is created ceph therefore rbd
+docker container run -it --mount source=test,dst=/test -name bb busybox:latest
+docker volume rm test //test is volume name
