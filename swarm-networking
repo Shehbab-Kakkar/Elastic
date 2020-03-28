@@ -1,6 +1,27 @@
-overlay networking 
+overlay networking:-
+
 containers only connect to other containers on the same network
 connecting to containers on other hosts requires that the container publish the needed ports
 overlay network allows containers running on different hosts to connect on a private network.
 
 Open Ports:- UDP 4789 Used by docker for overlays network. CP and UDP 7946 for docker swarm 
+
+> docker network create -d overlay --attachable=true frontend 
+
+--attachable=true allow manually attached container to the network
+--attachable=false container added to the network only through swarm services
+
+Run command on mutliple hosts:-
+
+> docker container run --rm -it --network=frontend --name bb-$HOSTNAME busybox:1.27
+
+We are able to ping the two containers running on the different nodes using their hostname
+
+By default docker connect overlay network to bridge network.
+Means overlay network has access to internal resources.
+If we do not connect to an external bridge interface set --internal flag.
+-------------
+By default docker overlay network traffic is sent in clear-text
+The encrypted option will encrypt all traffic sent within the network
+
+docker network create -d overlay --opt encrypted=true secure 
