@@ -71,3 +71,8 @@ https://github.com/Shehbab-Kakkar/AnsibleTest/blob/master/docker-commands
 https://www.elastic.co/guide/en/elasticsearch/client/curator/current/filtertype_period.html
 https://fabianlee.org/2017/04/03/elk-using-curator-to-manage-the-size-and-persistence-of-your-index-storage/ 
   
+======================
+metribeat filesystem
+https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-metricset-system-filesystem.html
+https://discuss.elastic.co/t/configuring-system-filesystem-to-show-useful-mount-stats/136914
+https://www.elastic.co/guide/en/elasticsearch/client/curator/current/configfile.html
